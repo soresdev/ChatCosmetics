@@ -2,11 +2,11 @@ package me.sores.chatcosmetics.util.chatcolors.menu;
 
 import me.sores.chatcosmetics.profile.Profile;
 import me.sores.chatcosmetics.util.chatcolors.CosmeticChatColor;
-import me.sores.spark.util.ItemBuilder;
-import me.sores.spark.util.MessageUtil;
-import me.sores.spark.util.StringUtil;
-import me.sores.spark.util.menu.Button;
-import me.sores.spark.util.menu.Menu;
+import me.sores.impulse.util.ItemBuilder;
+import me.sores.impulse.util.MessageUtil;
+import me.sores.impulse.util.StringUtil;
+import me.sores.impulse.util.menu.Button;
+import me.sores.impulse.util.menu.Menu;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.inventory.ClickType;

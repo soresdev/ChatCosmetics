@@ -2,7 +2,7 @@ package me.sores.chatcosmetics.util.prefixes;
 
 import me.sores.chatcosmetics.config.Config;
 import me.sores.chatcosmetics.profile.Profile;
-import me.sores.spark.util.ItemData;
+import me.sores.impulse.util.ItemData;
 import org.bukkit.entity.Player;
 
 /**

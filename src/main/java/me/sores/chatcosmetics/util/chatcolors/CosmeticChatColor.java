@@ -1,7 +1,7 @@
 package me.sores.chatcosmetics.util.chatcolors;
 
 import me.sores.chatcosmetics.profile.Profile;
-import me.sores.spark.util.ItemData;
+import me.sores.impulse.util.ItemData;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;

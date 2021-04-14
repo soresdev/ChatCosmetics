@@ -6,7 +6,7 @@ import me.sores.chatcosmetics.ChatCosmetics;
 import me.sores.chatcosmetics.util.chatcolors.CosmeticChatColor;
 import me.sores.chatcosmetics.util.prefixes.ChatPrefix;
 import me.sores.chatcosmetics.util.prefixes.ChatPrefixColor;
-import me.sores.spark.util.profile.PlayerProfile;
+import me.sores.impulse.util.profile.PlayerProfile;
 import org.bson.Document;
 
 import java.util.UUID;

@@ -25,5 +25,5 @@ ChatCosmetics is based on a 1.8.8 Paperspigot
 
 ----
 ### Depends
-ChatCosmetics depends on my Spigot commons lib [Spark](https://github.com/soresdev/Spark/releases)\
-The plugin will not start unless Spark is installed
+ChatCosmetics depends on my Spigot commons lib [Impulse](https://github.com/soresdev/Impulse/releases)\
+The plugin will not start unless Impulse is installed

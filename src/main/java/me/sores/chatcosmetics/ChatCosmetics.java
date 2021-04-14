@@ -7,8 +7,8 @@ import me.sores.chatcosmetics.config.Config;
 import me.sores.chatcosmetics.profile.Profile;
 import me.sores.chatcosmetics.profile.ProfileHandler;
 import me.sores.chatcosmetics.profile.ProfileListener;
-import me.sores.chatcosmetics.util.SparkHook;
-import me.sores.spark.util.database.MongoBase;
+import me.sores.chatcosmetics.util.ImpulseHook;
+import me.sores.impulse.util.database.MongoBase;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -27,7 +27,7 @@ public class ChatCosmetics extends JavaPlugin {
     @Override
     public void onEnable() {
         instance = this;
-        SparkHook.hookSpark(this);
+        ImpulseHook.hook(this);
 
         initInstances();
 

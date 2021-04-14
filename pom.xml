@@ -28,7 +28,7 @@
         </dependency>
         <dependency>
             <groupId>me.sores</groupId>
-            <artifactId>Spark</artifactId>
+            <artifactId>Impulse</artifactId>
             <version>1.0-SNAPSHOT</version>
             <scope>provided</scope>
         </dependency>

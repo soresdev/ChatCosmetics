@@ -1,6 +1,6 @@
 package me.sores.chatcosmetics.profile;
 
-import me.sores.spark.util.StringUtil;
+import me.sores.impulse.util.StringUtil;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;

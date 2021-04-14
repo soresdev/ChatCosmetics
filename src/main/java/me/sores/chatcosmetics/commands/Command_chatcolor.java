@@ -3,8 +3,8 @@ package me.sores.chatcosmetics.commands;
 import me.sores.chatcosmetics.ChatCosmetics;
 import me.sores.chatcosmetics.profile.ProfileHandler;
 import me.sores.chatcosmetics.util.chatcolors.menu.ColorMenu;
-import me.sores.spark.util.MessageUtil;
-import me.sores.spark.util.command.ICommand;
+import me.sores.impulse.util.MessageUtil;
+import me.sores.impulse.util.command.ICommand;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 

@@ -3,8 +3,8 @@ package me.sores.chatcosmetics.config;
 import com.google.common.collect.Lists;
 import me.sores.chatcosmetics.ChatCosmetics;
 import me.sores.chatcosmetics.util.prefixes.ChatPrefix;
-import me.sores.spark.util.ItemData;
-import me.sores.spark.util.configuration.ConfigFile;
+import me.sores.impulse.util.ItemData;
+import me.sores.impulse.util.configuration.ConfigFile;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.bukkit.Material;
 
