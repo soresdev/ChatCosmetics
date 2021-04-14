@@ -13,7 +13,7 @@ ChatCosmetics is based on a 1.8.8 Paperspigot
   - chatcosmetics.prefix.(prefixname) - Gives user access to use certain prefixes.
 
 - Use:
-  - Grab the JAR file from the releases and drop it in your server
+  - Grab the latest JAR file from the [releases](https://github.com/soresdev/ChatCosmetics/releases) and drop it in your server
   - Start your server, let the config file generate then stop your server
   - Open the config file and fill in your database credentials
   - Restart your server
