@@ -1,0 +1,16 @@
+database:
+  host: ''
+  username: ''
+  password: ''
+  name: ''
+  collection: ''
+prefixes:
+  questionmark:
+    display: '\u003F'
+    prefix: '\u003F'
+  dollarsign:
+    display: '\u0024'
+    prefix: '\u0024'
+  gg:
+    display: 'GG'
+    prefix: 'GG'

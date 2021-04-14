@@ -1,0 +1,111 @@
+package me.sores.chatcosmetics.util.prefixes.menu;
+
+import me.sores.chatcosmetics.config.Config;
+import me.sores.chatcosmetics.profile.Profile;
+import me.sores.chatcosmetics.util.prefixes.ChatPrefix;
+import me.sores.spark.util.ItemBuilder;
+import me.sores.spark.util.MessageUtil;
+import me.sores.spark.util.StringUtil;
+import me.sores.spark.util.menu.Button;
+import me.sores.spark.util.menu.pagination.PaginatedMenu;
+import org.bukkit.Material;
+import org.bukkit.entity.Player;
+import org.bukkit.event.inventory.ClickType;
+import org.bukkit.inventory.ItemStack;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+/**
+ * Created by sores on 4/14/2021.
+ */
+public class PrefixMenu extends PaginatedMenu {
+
+    private Player player;
+    private Profile profile;
+    private ChatPrefix.Prefix selected;
+
+    public PrefixMenu(Player player, Profile profile) {
+        this.player = player;
+        this.profile = profile;
+
+        setAutoUpdate(true);
+        setUpdateAfterClick(true);
+    }
+
+    @Override
+    public String getPrePaginatedTitle(Player player) {
+        return "&aSelect your prefix";
+    }
+
+    @Override
+    public Map<Integer, Button> getAllPagesButtons(Player player) {
+        Map<Integer, Button> buttons = new HashMap<>();
+        int index = 1;
+
+        for(ChatPrefix.Prefix prefix : Config.getPrefixes()){
+            buttons.put(index, new Button() {
+                @Override
+                public ItemStack getButtonItem(Player player) {
+                    return new ItemBuilder(prefix.getData().getMaterial()).setData(prefix.getData().getData()).setName("&7[&r" + prefix.getDisplay() + "&7]" +
+                            (prefix == profile.getSelectedPrefix() ? " &7(Selected)" : "")).setLore(Arrays.asList(
+                            " ",
+                            StringUtil.color(prefix.has(player) ? "&aYou have access to this prefix." : "&cYou do not have access to this prefix.")
+                    )).build();
+                }
+
+                @Override
+                public void clicked(Player player, ClickType clickType) {
+                    if(!prefix.has(player)){
+                        MessageUtil.message(player, "&cYou do not have permission to use that prefix.");
+                        return;
+                    }
+
+                    setSelected(prefix);
+                    new PrefixColorMenu(player, profile).openMenu(player);
+                }
+            });
+
+            buttons.put(0, new Button() {
+                @Override
+                public ItemStack getButtonItem(Player player) {
+                    return new ItemBuilder(Material.FENCE).setName("&cClear Prefix").build();
+                }
+
+                @Override
+                public void clicked(Player player, ClickType clickType) {
+                    if(selected == null){
+                        MessageUtil.message(player, "&cYou have no active prefix.");
+                        player.closeInventory();
+                        return;
+                    }
+
+                    setSelected(null);
+
+                    MessageUtil.message(player, "&aYou have cleared your active prefix.");
+                    player.closeInventory();
+                }
+            });
+
+            index++;
+        }
+
+        return buttons;
+    }
+
+    private void setSelected(ChatPrefix.Prefix selected) {
+        this.selected = selected;
+        if(selected == null){
+            profile.setSelectedPrefix(null);
+            profile.setSelectedPrefixColor(null);
+        }else{
+            if(selected.has(player)){
+                selected.apply(profile);
+            }else{
+                MessageUtil.message(player, "&cYou do not have permission to use that prefix.");
+            }
+        }
+    }
+
+}
