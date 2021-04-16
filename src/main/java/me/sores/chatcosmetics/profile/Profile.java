@@ -3,6 +3,7 @@ package me.sores.chatcosmetics.profile;
 import com.mongodb.client.FindIterable;
 import com.mongodb.client.MongoCollection;
 import me.sores.chatcosmetics.ChatCosmetics;
+import me.sores.chatcosmetics.Init;
 import me.sores.chatcosmetics.util.chatcolors.CosmeticChatColor;
 import me.sores.chatcosmetics.util.prefixes.ChatPrefix;
 import me.sores.chatcosmetics.util.prefixes.ChatPrefixColor;
@@ -32,7 +33,7 @@ public class Profile extends PlayerProfile {
     @Override
     public void saveData() {
         try{
-            MongoCollection<Document> collection = ChatCosmetics.getInstance().getMongoBase().getCollection();
+            MongoCollection<Document> collection = Init.getInstance().getMongoBase().getCollection();
             Document fetched = fetchCurrentObject();
 
             if(fetched != null){
@@ -99,7 +100,7 @@ public class Profile extends PlayerProfile {
 
     @Override
     public Document fetchCurrentObject() {
-        FindIterable<Document> cursor = ChatCosmetics.getInstance().getMongoBase().getCollection().find(new Document("_id", getID().toString()));
+        FindIterable<Document> cursor = Init.getInstance().getMongoBase().getCollection().find(new Document("_id", getID().toString()));
 
         return cursor.first();
     }

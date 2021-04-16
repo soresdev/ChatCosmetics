@@ -3,12 +3,3 @@ main: me.sores.chatcosmetics.ChatCosmetics
 version: 1.0 SNAPSHOT
 author: sores
 commands:
-  ccreload:
-    description: Reload the config file.
-    aliases: [chatcosmeticsreload]
-  prefixes:
-    description: Open the prefix menu
-    aliases: [tags, prefix]
-  chatcolor:
-    description: Open the chat color menu
-    aliases: [colors, chatcolors]

@@ -1,52 +1,28 @@
 package me.sores.chatcosmetics.commands;
 
-import me.sores.chatcosmetics.ChatCosmetics;
 import me.sores.chatcosmetics.profile.ProfileHandler;
 import me.sores.chatcosmetics.util.chatcolors.menu.ColorMenu;
-import me.sores.impulse.util.MessageUtil;
-import me.sores.impulse.util.command.ICommand;
+import me.sores.impulse.util.cmdfrmwrk.BaseCommand;
+import me.sores.impulse.util.cmdfrmwrk.CommandUsageBy;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
 /**
  * Created by sores on 4/14/2021.
  */
-public class Command_chatcolor implements ICommand {
+public class Command_chatcolor extends BaseCommand {
 
-    private ChatCosmetics chatCosmetics;
-
-    public Command_chatcolor(ChatCosmetics chatCosmetics) {
-        this.chatCosmetics = chatCosmetics;
-
-        register();
+    public Command_chatcolor(){
+        super("chatcolor", "chatcosmetics.chatcolor", CommandUsageBy.PLAYER, new String[] { "colors", "chatcolors" });
+        setUsage("/<command>");
+        setArgRange(0, 0);
     }
 
     @Override
-    public void execute(CommandSender sender, String... args) {
-        if(sender instanceof Player){
-            Player player = (Player) sender;
+    public void execute(CommandSender sender, String[] args) {
+        Player player = (Player) sender;
 
-            if(!hasPermisson(player, "chatcosmetics.chatcolor")){
-                sendPermissionMessage(player);
-                return;
-            }
-
-            new ColorMenu(player, ProfileHandler.getInstance().getFrom(player.getUniqueId())).openMenu(player);
-        }
+        new ColorMenu(player, ProfileHandler.getInstance().getFrom(player.getUniqueId())).openMenu(player);
     }
 
-    @Override
-    public void register() {
-        chatCosmetics.getCommand("chatcolor").setExecutor(this);
-    }
-
-    @Override
-    public void sendPermissionMessage(Player player) {
-        MessageUtil.noPermission(player);
-    }
-
-    @Override
-    public boolean hasPermisson(Player player, String s) {
-        return player.hasPermission(s);
-    }
 }
